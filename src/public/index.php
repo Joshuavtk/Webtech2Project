@@ -10,6 +10,9 @@ use NotSymfony\RequestHandler;
 
 //require_once "startup.php";
 
+$requestHandler = new RequestHandler("shit");
+
+echo $requestHandler->parseURL("test");
 
 //var_dump();
 //var_dump($_SERVER);
@@ -21,8 +24,10 @@ $ru = $_SERVER["REQUEST_URI"];
 echo $ru;
 
 $path = explode("/", $ru);
+$path2 = explode("/", $sf);
 echo "<pre>";
-echo var_dump($path);
+var_dump($path);
+var_dump($path2);
 echo "</pre>";
 
 
@@ -30,4 +35,4 @@ echo "</pre>";
 //require('somefile.php');
 //$data = ob_get_clean();
 
-?>
+
