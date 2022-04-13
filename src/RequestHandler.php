@@ -1,6 +1,6 @@
 <?php
 
-namespace Joshua\NotSymfony;
+namespace NotSymfony;
 
 class RequestHandler
 {

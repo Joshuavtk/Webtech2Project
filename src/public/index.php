@@ -4,19 +4,27 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once __DIR__ . "vendor/autoload.php";
+require_once __DIR__ . "/../../vendor/autoload.php";
 
-use Joshua\NotSymfony\RequestHandler;
+use NotSymfony\RequestHandler;
 
-require_once "startup.php";
+//require_once "startup.php";
 
 
-vardump();
+//var_dump();
 //var_dump($_SERVER);
 
-echo $_SERVER["SCRIPT_FILENAME"];
+$sf = $_SERVER["SCRIPT_FILENAME"];
+echo $sf;
 echo "<br>";
-echo $_SERVER["REQUEST_URI"];
+$ru = $_SERVER["REQUEST_URI"];
+echo $ru;
+
+$path = explode("/", $ru);
+echo "<pre>";
+echo var_dump($path);
+echo "</pre>";
+
 
 //ob_start();
 //require('somefile.php');
