@@ -10,24 +10,22 @@ use NotSymfony\RequestHandler;
 
 //require_once "startup.php";
 
+$path = $_SERVER["REQUEST_URI"];
 
-//var_dump();
-//var_dump($_SERVER);
+$requestHandler = new RequestHandler();
 
-$sf = $_SERVER["SCRIPT_FILENAME"];
-echo $sf;
-echo "<br>";
-$ru = $_SERVER["REQUEST_URI"];
-echo $ru;
+$requestHandler->addRoute("test", null, function () { return "Hallo world!";});
+$requestHandler->addRoute("test2", "home");
 
-$path = explode("/", $ru);
-echo "<pre>";
-echo var_dump($path);
-echo "</pre>";
+ob_start();
+//echo $requestHandler->handleRequest("test");
+echo $requestHandler->handleRequest($path, ["name" => "World"]);
 
 
-//ob_start();
+//echo "</pre>";
+
+
 //require('somefile.php');
-//$data = ob_get_clean();
 
-?>
+$data = ob_get_clean();
+echo $data;
