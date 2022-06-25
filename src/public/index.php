@@ -6,26 +6,37 @@ error_reporting(E_ALL);
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 
-use NotSymfony\RequestHandler;
+use NotSymfony\core\App;
+use NotSymfony\routing\HomeController;
 
-//require_once "startup.php";
+try {
+    $app = new App();
+    global $app;
 
-$path = $_SERVER["REQUEST_URI"];
-
-$requestHandler = new RequestHandler();
-
-$requestHandler->addRoute("test", null, function () { return "Hallo world!";});
-$requestHandler->addRoute("test2", "home");
-
-ob_start();
-//echo $requestHandler->handleRequest("test");
-echo $requestHandler->handleRequest($path, ["name" => "World"]);
+    ob_start();
 
 
-//echo "</pre>";
+    $homeController = $app->router->addController(HomeController::class);
 
 
-//require('somefile.php');
+    $app->router->get('test', function () {
+        return "Hallo world!";
+    });
+    $app->router->get('test/test2/test3/test4', function () {
+        return "Hallo world 2!";
+    });
+    $app->router->get('', "home");
 
-$data = ob_get_clean();
-echo $data;
+    $app->router->get('test', [HomeController::class, "home"]);
+    $app->router->post('test', [HomeController::class, "send"]);
+
+
+    $app->getOutput($_SERVER["REQUEST_URI"], $_SERVER["REQUEST_METHOD"]);
+
+    $data = ob_get_clean();
+    echo $data;
+} catch (Exception $error) {
+    echo "Error in project: ";
+    echo $error;
+}
+

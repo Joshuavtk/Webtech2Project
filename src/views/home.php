@@ -1,18 +1,10 @@
-<?php
-$data = [];
-function init($params) {
-    $data = $params;
-    ?>
-<div>
+<?php function init($data, $url_params) { ?>
 
-    <h3>
-        Homepage
-    </h3>
-    <p>Hello <?= $data["name"] ?></p>
-
-</div>
+    <div>
+        <h3>
+            Homepage
+        </h3>
+    </div>
 
 
-<?php
-}
-?>
+<?php } ?>
