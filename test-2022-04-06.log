@@ -1,3 +1,0 @@
-[2022-04-06T10:06:19.343259+02:00] test.INFO: password_enter_new_hash {"password":"test","password_hash":"$2y$10$r6wA1.cib2nktKRpIdlEjOs66G4.UcqsBh53Kyv8WmXEyjSoinBHC"} []
-[2022-04-06T10:06:53.832722+02:00] test.INFO: password_enter_check {"password":"test","password_hash":"$2y$10$r6wA1.cib2nktKRpIdlEjOs66G4.UcqsBh53Kyv8WmXEyjSoinBHC","correct":true} []
-[2022-04-06T10:07:09.499024+02:00] test.INFO: password_enter_check {"password":"wrong","password_hash":"$2y$10$r6wA1.cib2nktKRpIdlEjOs66G4.UcqsBh53Kyv8WmXEyjSoinBHC","correct":false} []

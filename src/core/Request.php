@@ -14,7 +14,6 @@ class Request
         $this->fullURL = $fullURL;
         $exploded = explode("?", $fullURL);
         $this->fullPath = $exploded[0];
-//        var_dump($exploded);
         if (isset($exploded[1])) {
             $this->URLVariables = $this->getURLVariables($exploded[1]);
         }

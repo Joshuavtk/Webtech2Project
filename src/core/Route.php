@@ -2,25 +2,25 @@
 
 namespace NotSymfony\core;
 
+use Closure;
+use NotSymfony\security\PrivilegeLevel;
+
 class Route
 {
-    private string $name;
-    private \Closure|null $executable;
-    public View|null $view;
-    private $method;
-
     /**
      * @param string $name
-     * @param \Closure|null $executable
+     * @param Closure|null $executable
      * @param View|null $view
      * @param $method
+     * @param PrivilegeLevel $privilegeLevel
      */
-    public function __construct(string $name, \Closure|null $executable, View|null $view, $method)
-    {
-        $this->name = $name;
-        $this->executable = $executable;
-        $this->view = $view;
-        $this->method = $method;
+    public function __construct(
+        public string $name,
+        private Closure|null $executable,
+        public View|null $view,
+        public $method,
+        public PrivilegeLevel $privilegeLevel
+    ) {
     }
 
     /**
@@ -37,9 +37,9 @@ class Route
     }
 
     /**
-     * @return \Closure|null
+     * @return Closure|null
      */
-    public function execute(): ?\Closure
+    public function execute(): ?Closure
     {
         return $this->executable;
     }
