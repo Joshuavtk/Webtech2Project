@@ -40,3 +40,9 @@ mist nog wel aardig wat functionaliteit zoals het kunnen opbouwen van query's gr
 
 Met Laravel kan je Eloquent gebruiken om simpel uitgebreide dingen te doen met je Models. ASP.NET gebruikt standaard de 
 Entity Framework.
+
+
+## Eindadvies
+
+Ik adviseer om Laravel te gebruiken want ik heb daar veel ervaring mee en weet dat het alle functionaliteit heeft die 
+nuttig is voor dit project.
